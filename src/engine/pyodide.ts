@@ -43,7 +43,7 @@ export async function loadPyodide(): Promise<any> {
       const { loadPyodide: initPyodide } = await import('pyodide');
 
       const indexURL = import.meta.env.PROD
-        ? 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/'
+        ? 'https://cdn.jsdelivr.net/npm/pyodide@314.0.0/'
         : '/pyodide/';
 
       notifyLoading(true, '正在下载 Python 环境（约11MB）…');
