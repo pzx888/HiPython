@@ -1,0 +1,161 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  background: #fafafa;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab:hover {
+  color: var(--color-text);
+  background: rgba(0,0,0,0.03);
+}
+
+.activeTab {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.consoleOutput {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.output {
+  color: var(--color-text);
+  margin: 0;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-primary);
+}
+
+.runningIndicator {
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 32px;
+  color: var(--color-text-secondary);
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.emptyState p {
+  margin-bottom: 8px;
+  font-size: var(--font-size-base);
+}
+
+.hint {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm) !important;
+}
+
+.hint code {
+  background: #e8f5e9;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
+}
+
+.successHint {
+  padding: 16px;
+  text-align: center;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+}
+
+/* ---- Variables table ---- */
+.variablesTable {
+  overflow: auto;
+}
+
+.variablesTable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.variablesTable th {
+  text-align: left;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
+  position: sticky;
+  top: 0;
+}
+
+.variablesTable td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.varName {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+}
+
+.varType {
+  color: var(--color-text-light);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+}
+
+.varValue {
+  font-family: var(--font-mono);
+  color: var(--color-text);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,162 @@
+/* ============================================================
+   HiPython — Kid-friendly theme
+   ============================================================ */
+
+:root {
+  /* ---- Colors ---- */
+  --color-primary: #4CAF50;       /* green — run button, success */
+  --color-primary-dark: #388E3C;
+  --color-primary-light: #C8E6C9;
+  --color-secondary: #FF9800;     /* orange — hints, tips */
+  --color-secondary-light: #FFF3E0;
+  --color-accent: #2196F3;        /* blue — links, info */
+  --color-accent-light: #BBDEFB;
+  --color-error: #F44336;         /* red — errors */
+  --color-error-light: #FFEBEE;
+  --color-star: #FFC107;          /* gold — stars, badges */
+
+  --color-bg: #FAFAFA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-editor: #F5F5F5;
+  --color-bg-output: #263238;     /* dark console */
+  --color-text: #333333;
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+  --color-border: #E0E0E0;
+
+  /* ---- Typography — kid-friendly sizes ---- */
+  --font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+
+  /* ---- Spacing ---- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-round: 50%;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  /* ---- Layout ---- */
+  --topnav-height: 56px;
+  --sidebar-width: 320px;
+
+  /* ---- Typing Practice ---- */
+  --typing-key-size: 48px;
+  --typing-key-gap: 4px;
+  --typing-key-radius: 6px;
+  --typing-key-bg: #F0F0F0;
+  --typing-key-correct: #66BB6A;
+  --typing-key-error: #EF5350;
+  --typing-key-hint: #FFA726;
+  --typing-target-font: 32px;
+  --typing-target-correct: #66BB6A;
+  --typing-target-current: #2196F3;
+  --typing-target-pending: #BDBDBD;
+}
+
+/* ============================================================
+   Responsive: tablet (< 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  :root {
+    --typing-key-size: 40px;
+    --typing-target-font: 26px;
+  }
+}
+
+/* ============================================================
+   Responsive: mobile (< 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+  :root {
+    --typing-key-size: 32px;
+    --typing-key-gap: 2px;
+    --typing-target-font: 22px;
+  }
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Scrollbar (kid-friendly) ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-light);
+}
+
+/* ---- Focus rings ---- */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---- Unified button transitions ---- */
+button, a {
+  transition: all 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* ---- Utility classes ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

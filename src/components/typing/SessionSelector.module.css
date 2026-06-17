@@ -1,0 +1,134 @@
+/* ============================================================
+   HiPython — SessionSelector styles
+   ============================================================ */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---- Header ---- */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.levelBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-md);
+}
+
+.levelIcon {
+  font-size: 28px;
+}
+
+.levelTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.levelNum {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.headerStats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+/* ---- Card grid ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ---- Card ---- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  text-align: left;
+  font-family: inherit;
+}
+
+.card:hover:not(.locked) {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.cardDifficulty {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.cardDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+/* ---- Locked card ---- */
+.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+.lockOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+}
+
+.lockIcon {
+  font-size: 32px;
+}
+
+.lockText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}

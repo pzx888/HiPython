@@ -1,0 +1,42 @@
+/* ============================================================
+   HiPython — ResizeHandle styles
+   ============================================================ */
+
+.handle {
+  width: 6px;
+  min-width: 6px;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: background 0.15s;
+  position: relative;
+  z-index: 10;
+}
+
+.handle:hover,
+.handle:active {
+  background: var(--color-primary-light);
+}
+
+.disabled {
+  cursor: default;
+}
+
+.disabled:hover {
+  background: transparent;
+}
+
+.grip {
+  width: 2px;
+  height: 32px;
+  border-radius: 1px;
+  background: var(--color-border);
+  transition: background 0.15s;
+}
+
+.handle:hover .grip,
+.handle:active .grip {
+  background: var(--color-primary);
+}

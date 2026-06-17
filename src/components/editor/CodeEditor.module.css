@@ -1,0 +1,48 @@
+/* ============================================================
+   HiPython — CodeEditor styles
+   ============================================================ */
+
+.editorWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Code area: fills remaining space, CodeMirror absolutely fills it */
+.codeArea {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make the React-CodeMirror wrapper and CodeMirror itself fill .codeArea */
+.codeArea > div {
+  position: absolute;
+  inset: 0;
+}
+
+.editorWrapper :global(.cm-editor) {
+  height: 100%;
+}
+
+.editorWrapper :global(.cm-scroller) {
+  overflow: auto !important;
+}
+
+/* Bottom bar: run button + hint */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #fafafa;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.shortcutHint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}

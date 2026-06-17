@@ -1,0 +1,80 @@
+/* ============================================================
+   HiPython — StoryMap styles
+   ============================================================ */
+
+.storyMap {
+  padding: 12px 0;
+}
+
+.title {
+  font-size: var(--font-size-lg, 18px);
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--color-text, #333);
+  text-align: center;
+}
+
+.chapterList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chapterNode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 2px solid var(--color-border, #e0e0e0);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.chapterNode:hover:not(:disabled) {
+  border-color: var(--color-primary, #4CAF50);
+  background: #f1f8e9;
+  transform: translateX(4px);
+}
+
+.chapterNode.current {
+  border-color: var(--color-primary, #4CAF50);
+  background: #e8f5e9;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.chapterNode.completed {
+  border-color: #a5d6a7;
+  background: #f9fbe7;
+}
+
+.chapterNode.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.nodeIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.nodeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.nodeTitle {
+  font-size: var(--font-size-sm, 14px);
+  font-weight: 600;
+  color: var(--color-text, #333);
+}
+
+.nodeStars {
+  font-size: 12px;
+}

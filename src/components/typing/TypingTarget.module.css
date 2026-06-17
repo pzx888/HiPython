@@ -1,0 +1,110 @@
+/* ============================================================
+   HiPython — TypingTarget styles
+   ============================================================ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  min-height: 20px;
+}
+
+.target {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 20px;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.char {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 40px;
+  font-family: var(--font-mono);
+  font-size: var(--typing-target-font, 32px);
+  font-weight: 700;
+  border-radius: 4px;
+  transition: color 0.1s, background 0.1s, transform 0.1s;
+  padding: 0 2px;
+}
+
+/* ---- Character states ---- */
+
+.correct {
+  color: var(--typing-target-correct, #66BB6A);
+  background: #E8F5E9;
+  text-decoration: underline;
+  text-decoration-color: #66BB6A;
+  text-underline-offset: 4px;
+}
+
+.current {
+  color: var(--typing-target-current, #2196F3);
+  background: #E3F2FD;
+  animation: blink 0.8s ease-in-out infinite;
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  background: #2196F3;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.error {
+  color: var(--typing-key-error, #EF5350);
+  background: #FFEBEE;
+}
+
+.pending {
+  color: var(--typing-target-pending, #BDBDBD);
+}
+
+/* ---- Shake on error ---- */
+.shake {
+  animation: containerShake 0.2s ease-in-out;
+}
+
+@keyframes containerShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+/* ---- Complete badge ---- */
+.complete {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: 700;
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}

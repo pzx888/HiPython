@@ -1,0 +1,100 @@
+/* ============================================================
+   HiPython — Story page styles
+   ============================================================ */
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: var(--font-size-2xl, 28px);
+  font-weight: 800;
+  color: var(--color-text, #333);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: var(--font-size-md, 16px);
+  color: var(--color-text-light, #666);
+  margin: 0;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-text-light, #666);
+}
+
+.progressBar {
+  width: 200px;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-primary, #4CAF50);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.mapWrapper {
+  flex: 0 0 320px;
+}
+
+.intro {
+  flex: 1;
+  background: #f9fbe7;
+  border: 1px solid #e6ee9c;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.intro h3 {
+  margin: 0 0 12px 0;
+  font-size: var(--font-size-lg, 18px);
+  color: var(--color-text, #333);
+}
+
+.intro p {
+  font-size: var(--font-size-sm, 14px);
+  line-height: 1.8;
+  color: var(--color-text, #555);
+  margin: 0 0 12px 0;
+}
+
+.cta {
+  font-weight: 600;
+  color: var(--color-primary, #4CAF50) !important;
+  font-size: var(--font-size-md, 16px) !important;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .mapWrapper {
+    flex: auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,80 @@
+/* ============================================================
+   HiPython — TypingProgress styles
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ---- Progress bar ---- */
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.bar {
+  flex: 1;
+  height: 12px;
+  background: #E0E0E0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #81C784);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progressLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* ---- Stats row ---- */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.statValue {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.comboWarm {
+  color: var(--color-secondary) !important;
+}
+
+.comboHot {
+  color: var(--color-error) !important;
+  animation: comboBounce 0.5s ease-in-out infinite;
+}
+
+@keyframes comboBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
