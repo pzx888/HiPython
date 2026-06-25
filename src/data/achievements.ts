@@ -101,6 +101,22 @@ export const ACHIEVEMENTS: AchievementDef[] = [
     check: (p) => levelCompleted(p, 5),
   },
   {
+    id: 'complete_l6',
+    name: '综合挑战者',
+    icon: '🏆',
+    description: '完成 L6 全部课程',
+    category: 'course',
+    check: (p) => levelCompleted(p, 6),
+  },
+  {
+    id: 'l6_all_stars',
+    name: '挑战满分',
+    icon: '💫',
+    description: 'L6 全部课程拿到 3 颗星',
+    category: 'course',
+    check: (p) => levelAllStars(p, 6),
+  },
+  {
     id: 'all_stars',
     name: '完美通关',
     icon: '🌟',
@@ -197,6 +213,13 @@ function levelCompleted(progress: UserProgress, level: number): boolean {
   const ids = LEVEL_LESSONS[level];
   if (!ids || ids.length === 0) return false;
   return ids.every((id) => progress.completedLessons[id]?.completed);
+}
+
+/** Check if all lessons in a given level have 3 stars */
+function levelAllStars(progress: UserProgress, level: number): boolean {
+  const ids = LEVEL_LESSONS[level];
+  if (!ids || ids.length === 0) return false;
+  return ids.every((id) => (progress.completedLessons[id]?.stars ?? 0) >= 3);
 }
 
 /** Get the set of achievement IDs that should be unlocked given progress */

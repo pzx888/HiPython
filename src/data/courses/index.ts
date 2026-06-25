@@ -8,6 +8,7 @@ import { l2Lessons } from './main/l2';
 import { l3Lessons } from './main/l3';
 import { l4Lessons } from './main/l4';
 import { l5Lessons } from './main/l5';
+import { l6Lessons } from './main/l6';
 import { storyLessons } from './story';
 import { gameLessons } from './game';
 
@@ -18,6 +19,7 @@ export const allLessons: Lesson[] = [
   ...l3Lessons,
   ...l4Lessons,
   ...l5Lessons,
+  ...l6Lessons,
   ...storyLessons,
   ...gameLessons,
 ];

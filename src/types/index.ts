@@ -2,8 +2,8 @@
 // HiPython — Shared type definitions
 // ============================================================
 
-/** Difficulty levels 1-5 */
-export type Difficulty = 1 | 2 | 3 | 4 | 5;
+/** Difficulty levels 1-6 */
+export type Difficulty = 1 | 2 | 3 | 4 | 5 | 6;
 
 /** Course series */
 export type Series = 'main' | 'story' | 'game';

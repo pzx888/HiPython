@@ -33,6 +33,7 @@ export function CourseMap({
     3: '🌳 L3：判断与选择',
     4: '🏗️ L4：数据的容器',
     5: '🏰 L5：函数的艺术',
+    6: '🏆 L6：综合挑战',
   };
 
   return (
