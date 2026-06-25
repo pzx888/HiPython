@@ -189,6 +189,7 @@ export function TypingPage() {
       {/* Virtual keyboard */}
       <VirtualKeyboard
         nextExpectedChar={engine.nextExpectedChar}
+        taskIndex={engine.currentTaskIndex}
         lastKeyCode={lastKeyCode}
         lastKeyCorrect={lastKeyCorrect}
         muted={localMuted}

@@ -78,6 +78,8 @@ const KEYBOARD_ROWS = [
 interface VirtualKeyboardProps {
   /** The next character the user should type (lowercase) */
   nextExpectedChar: string;
+  /** Changes when advancing to a new task — clears stale key highlights */
+  taskIndex: number;
   /** The last key that was pressed (event.code) */
   lastKeyCode: string | null;
   /** Whether the last keypress was correct */
@@ -89,6 +91,7 @@ interface VirtualKeyboardProps {
 
 export function VirtualKeyboard({
   nextExpectedChar,
+  taskIndex,
   lastKeyCode,
   lastKeyCorrect,
   muted,
@@ -103,28 +106,38 @@ export function VirtualKeyboard({
   useEffect(() => {
     if (!lastKeyCode) return;
 
+    const keyCode = lastKeyCode;
     const state = lastKeyCorrect ? 'correct' : 'error';
-    setActiveCodes((prev) => ({ ...prev, [lastKeyCode]: state }));
+    setActiveCodes((prev) => ({ ...prev, [keyCode]: state }));
 
-    // Clear previous timer for this key
-    if (timersRef.current[lastKeyCode]) {
-      clearTimeout(timersRef.current[lastKeyCode]);
+    if (timersRef.current[keyCode]) {
+      clearTimeout(timersRef.current[keyCode]);
     }
 
-    // Clear after animation
-    timersRef.current[lastKeyCode] = setTimeout(() => {
+    timersRef.current[keyCode] = setTimeout(() => {
       setActiveCodes((prev) => {
         const next = { ...prev };
-        delete next[lastKeyCode];
+        delete next[keyCode];
         return next;
       });
+      delete timersRef.current[keyCode];
     }, 350);
-
-    return () => {
-      // Cleanup on unmount
-      Object.values(timersRef.current).forEach((t) => clearTimeout(t));
-    };
   }, [lastKeyCode, lastKeyCorrect]);
+
+  // Unmount only — do NOT clear all timers when lastKeyCode changes
+  useEffect(() => {
+    const timers = timersRef.current;
+    return () => {
+      Object.values(timers).forEach((t) => clearTimeout(t));
+    };
+  }, []);
+
+  // New task → wipe any lingering highlights
+  useEffect(() => {
+    Object.values(timersRef.current).forEach((t) => clearTimeout(t));
+    timersRef.current = {};
+    setActiveCodes({});
+  }, [taskIndex]);
 
   // Determine which code corresponds to the next expected char
   function getCodeForChar(char: string): string | null {
