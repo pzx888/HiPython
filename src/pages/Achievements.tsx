@@ -3,11 +3,13 @@
 // ============================================================
 
 import { useState } from 'react';
+import { useUserProfile } from '../context/UserProfileContext';
 import { useProgress } from '../hooks/useProgress';
 import { ACHIEVEMENTS, getUnlockableBadges } from '../data/achievements';
 import styles from './Achievements.module.css';
 
 export function AchievementsPage() {
+  const { currentProfile } = useUserProfile();
   const { progress, resetProgress } = useProgress();
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -68,13 +70,13 @@ export function AchievementsPage() {
             className={styles.resetButton}
             onClick={() => setShowConfirm(true)}
           >
-            🗑️ 重置所有进度
+            🗑️ 重置当前用户的学习记录
           </button>
         ) : (
           <div className={styles.confirmBox}>
             <p className={styles.confirmText}>
-              ⚠️ 确定要清空所有学习记录吗？<br />
-              <strong>星星、徽章、代码都会被删除，无法恢复！</strong>
+              ⚠️ 确定要清空「{currentProfile.name}」的学习记录吗？<br />
+              <strong>该用户的星星、徽章、代码都会被删除，无法恢复！</strong>
             </p>
             <div className={styles.confirmActions}>
               <button

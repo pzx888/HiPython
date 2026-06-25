@@ -3,10 +3,12 @@
 // ============================================================
 
 import { Link } from 'react-router-dom';
+import { useUserProfile } from '../context/UserProfileContext';
 import { useProgress } from '../hooks/useProgress';
 import styles from './Home.module.css';
 
 export function Home() {
+  const { currentProfile } = useUserProfile();
   const { progress } = useProgress();
 
   return (
@@ -15,8 +17,8 @@ export function Home() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            <span className={styles.heroEmoji}>🐍</span>
-            欢迎来到 HiPython！
+            <span className={styles.heroEmoji}>{currentProfile.emoji}</span>
+            你好，{currentProfile.name}！
           </h1>
           <p className={styles.heroSubtitle}>
             和 Python 小蛇一起，开启编程冒险之旅 🚀

@@ -143,6 +143,14 @@ export interface TypingStats {
   level: number;
 }
 
+/** A local learner profile (no auth) */
+export interface UserProfile {
+  id: string;
+  name: string;
+  emoji: string;
+  createdAt: string;
+}
+
 /** Overall user progress */
 export interface UserProgress {
   completedLessons: Record<string, LessonProgress>;

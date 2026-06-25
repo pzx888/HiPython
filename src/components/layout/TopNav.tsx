@@ -3,6 +3,7 @@
 // ============================================================
 
 import { Link, useLocation } from 'react-router-dom';
+import { UserSwitcher } from './UserSwitcher';
 import styles from './TopNav.module.css';
 
 export function TopNav() {
@@ -37,6 +38,7 @@ export function TopNav() {
           </Link>
         ))}
       </div>
+      <UserSwitcher />
     </nav>
   );
 }

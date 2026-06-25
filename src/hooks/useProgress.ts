@@ -4,6 +4,7 @@
 
 import { useCallback } from 'react';
 import { useLocalStorage } from './useLocalStorage';
+import { useUserProfile } from '../context/UserProfileContext';
 import { getUnlockableBadges } from '../data/achievements';
 import type { UserProgress, LessonProgress, TypingRecord, TypingStats } from '../types';
 
@@ -28,8 +29,9 @@ const defaultProgress: UserProgress = {
 };
 
 export function useProgress() {
+  const { currentProfile } = useUserProfile();
   const [progress, setProgress] = useLocalStorage<UserProgress>(
-    'progress',
+    `progress:${currentProfile.id}`,
     defaultProgress,
   );
 
